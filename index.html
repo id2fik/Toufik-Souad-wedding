@@ -264,6 +264,34 @@
             background: linear-gradient(135deg, #d4a574, #e8d5a3);
         }
 
+        /* Style pour le bouton photo - même style que le bouton carte */
+        .photo-button {
+            background: linear-gradient(135deg, #b8860b, #d4a574);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(184, 134, 11, 0.3);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px 10px;
+            text-decoration: none;
+        }
+
+        .photo-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(184, 134, 11, 0.4);
+            background: linear-gradient(135deg, #d4a574, #e8d5a3);
+        }
+
         .timing-notice {
             margin-top: 40px;
             color: #8b7355;
@@ -273,6 +301,29 @@
             background: rgba(212, 165, 116, 0.05);
             border-radius: 10px;
             border-left: 4px solid #d4a574;
+        }
+
+        /* Section pour les photos */
+        .photo-section {
+            margin: 40px 0;
+            padding: 25px;
+            background: rgba(212, 165, 116, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .photo-section h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #8b7355;
+            font-weight: 600;
+        }
+
+        .photo-section p {
+            color: #a0885c;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 0.95em;
         }
 
         @media (max-width: 600px) {
@@ -292,6 +343,12 @@
                 flex-direction: column;
                 gap: 10px;
             }
+
+            .map-button, .photo-button {
+                margin: 10px 5px;
+                padding: 12px 24px;
+                font-size: 0.9em;
+            }
         }
 
         .couple-illustration {
@@ -310,7 +367,7 @@
         
         <div class="content">
             <div class="basmala">
-                بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                ﺑِﺴْﻢِ ﱙﻟﻠَّﻰﻪِ ﱙﻟﺮَّﺤْﻤَﻰﻦِ ﱙﻟﺮَّﺣِﻴﻢِ
             </div>
             
             <div class="save-date-header">Save the Date</div>
@@ -348,6 +405,18 @@
                     <i class="fas fa-map-marker-alt"></i>
                     Voir sur la carte
                 </button>
+            </div>
+
+            <div class="photo-section">
+                <h3>Partagez vos plus beaux moments</h3>
+                <p>Immortalisez cette journée spéciale avec nous !</p>
+                <a href="https://chat.whatsapp.com/CRHk9ZR8Q6l2rFZJyyFZmW?mode=ems_copy_t" class="photo-button" target="_blank">
+                    <i class="fas fa-camera"></i>
+                    Partagez vos photos
+                </a>
+                <p style="margin-top: 10px; font-size: 0.9em;">
+                    <strong>Photo Mariage T&S 23/08</strong>
+                </p>
             </div>
             
             <div class="timing-notice">
