@@ -135,14 +135,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .conjunction {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2em;
-            color: #d4a574;
-            margin: 10px 0;
-            font-style: italic;
-        }
-
         .invitation-text {
             font-size: 1.1em;
             color: #8b7355;
@@ -216,17 +208,11 @@
             border: 1px solid rgba(212, 165, 116, 0.1);
         }
 
-        .location h3 {
+        .location-section h3 {
             font-size: 1.3em;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
             color: #8b7355;
             font-weight: 600;
-        }
-
-        .location p {
-            margin-bottom: 4px;
-            font-size: 1.05em;
-            color: #8b7355;
         }
 
         .love-quote {
@@ -264,7 +250,6 @@
             background: linear-gradient(135deg, #d4a574, #e8d5a3);
         }
 
-        /* Style pour le bouton photo - même style que le bouton carte */
         .photo-button {
             background: linear-gradient(135deg, #b8860b, #d4a574);
             color: white;
@@ -303,7 +288,6 @@
             border-left: 4px solid #d4a574;
         }
 
-        /* Section pour les photos */
         .photo-section {
             margin: 40px 0;
             padding: 25px;
@@ -324,6 +308,222 @@
             font-style: italic;
             margin-bottom: 15px;
             font-size: 0.95em;
+        }
+
+        /* Popup personnalisée */
+        .custom-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .custom-popup.show {
+            display: flex;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+            border: 2px solid #d4a574;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .popup-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .popup-title {
+            font-size: 1.4em;
+            color: #b8860b;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .popup-message {
+            font-size: 1em;
+            color: #8b7355;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .popup-close-btn {
+            background: linear-gradient(135deg, #b8860b, #d4a574);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .popup-close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.4);
+        }
+
+        .timeline-section {
+            margin: 40px 0;
+            padding: 30px 20px;
+            background: rgba(212, 165, 116, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .timeline-section h3 {
+            font-size: 1.2em;
+            color: #8b7355;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 80px;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #d4a574, #b8860b, #d4a574);
+            z-index: 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 80px;
+            width: 3px;
+            background: linear-gradient(180deg, #4a90e2, #2e5f8a);
+            z-index: 1;
+            transition: height 1s ease;
+        }
+
+        .timeline[data-progress="0"]::after {
+            height: 0%;
+        }
+
+        .timeline[data-progress="1"]::after {
+            height: 20%;
+        }
+
+        .timeline[data-progress="2"]::after {
+            height: 40%;
+        }
+
+        .timeline[data-progress="3"]::after {
+            height: 60%;
+        }
+
+        .timeline[data-progress="4"]::after {
+            height: 80%;
+        }
+
+        .timeline[data-progress="5"]::after {
+            height: 100%;
+        }
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 1;
+        }
+
+        .timeline-time {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #b8860b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 70px;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: #b8860b;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.3);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item.completed .timeline-dot {
+            background: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+        }
+
+        .timeline-item.active .timeline-dot {
+            background: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 6px rgba(74, 144, 226, 0.3);
+            }
+        }
+
+        .timeline-label {
+            font-size: 0.95em;
+            color: #8b7355;
+            text-align: left;
+            line-height: 1.4;
+            font-style: italic;
+            flex: 1;
         }
 
         @media (max-width: 600px) {
@@ -349,13 +549,15 @@
                 padding: 12px 24px;
                 font-size: 0.9em;
             }
-        }
 
-        .couple-illustration {
-            margin: 30px 0;
-            font-size: 4em;
-            color: #d4a574;
-            opacity: 0.7;
+            .timeline-time {
+                min-width: 60px;
+                font-size: 1em;
+            }
+
+            .timeline-label {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -367,7 +569,7 @@
         
         <div class="content">
             <div class="basmala">
-                ﺑِﺴْﻢِ ﱙﻟﻠَّﻰﻪِ ﱙﻟﺮَّﺤْﻤَﻰﻦِ ﱙﻟﺮَّﺣِﻴﻢِ
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
             </div>
             
             <div class="save-date-header">Save the Date</div>
@@ -381,11 +583,11 @@
             <div class="decorative-lines"></div>
             
             <div class="date-section">
-                <div class="month">Août</div>
+                <div class="month">Octobre</div>
                 <div class="day-info">
-                    <div class="day">Samedi</div>
-                    <div class="date-number">23</div>
-                    <div class="time">14h00</div>
+                    <div class="day">Vendredi</div>
+                    <div class="date-number">31</div>
+                    <div class="time">15h00</div>
                 </div>
             </div>
             
@@ -395,11 +597,53 @@
                 "Nous nous marions, notre meilleur ami,<br>
                 la personne avec qui nous rions, vivons, rêvons et aimons."
             </div>
+
+            <div class="timeline-section">
+                <h3>Programme de la journée</h3>
+                <div class="timeline" id="timeline">
+                    <div class="timeline-item" data-time="11:00">
+                        <div class="timeline-time">11:00</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">Point de rendez-vous</div>
+                    </div>
+                    <div class="timeline-item" data-time="12:00">
+                        <div class="timeline-time">12:00</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">Démarrage du cortège</div>
+                    </div>
+                    <div class="timeline-item" data-time="15:00">
+                        <div class="timeline-time">15:00</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">Arrivée à la salle des fêtes</div>
+                    </div>
+                    <div class="timeline-item" data-time="19:00">
+                        <div class="timeline-time">19:00</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">Dîner</div>
+                    </div>
+                    <div class="timeline-item" data-time="00:00">
+                        <div class="timeline-time">00:00</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">Fin de la cérémonie</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="decorative-lines"></div>
             
             <div class="location-section">
-                <h3>Mairie de Bois-Colombes</h3>
-                <p>Place de la République</p>
-                <p>92270 Bois-Colombes</p>
+                <h3>Point de rendez-vous du cortège</h3>
+                <p style="color: #8b7355; font-size: 1.05em; margin-bottom: 15px; font-style: italic;">À côté de la pompe à essence</p>
+                
+                <button class="map-button" onclick="openCortegeLocation()">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Voir sur la carte
+                </button>
+            </div>
+
+            <div class="location-section">
+                <h3>Salle des fêtes</h3>
+                <p style="color: #8b7355; font-size: 1.05em; margin-bottom: 15px;">Hotel Raya Tichy</p>
                 
                 <button class="map-button" onclick="openGoogleMaps()">
                     <i class="fas fa-map-marker-alt"></i>
@@ -408,14 +652,23 @@
             </div>
 
             <div class="photo-section">
+                <h3>Suivez notre trajet en temps réel</h3>
+                <p>Restez connectés et suivez notre voyage vers ce jour spécial !</p>
+                <button class="photo-button" onclick="openTripTracking()">
+                    <i class="fas fa-route"></i>
+                    Suivre le trajet
+                </button>
+            </div>
+
+            <div class="photo-section">
                 <h3>Partagez vos plus beaux moments</h3>
                 <p>Immortalisez cette journée spéciale avec nous !</p>
-                <a href="https://chat.whatsapp.com/CRHk9ZR8Q6l2rFZJyyFZmW?mode=ems_copy_t" class="photo-button" target="_blank">
+                <a href="https://chat.whatsapp.com/Lr87ZTeU1ar72ZJo2iYxu3?mode=wwt" class="photo-button" target="_blank">
                     <i class="fas fa-camera"></i>
                     Partagez vos photos
                 </a>
                 <p style="margin-top: 10px; font-size: 0.9em;">
-                    <strong>Photo Mariage T&S 23/08</strong>
+                    <strong>Photo Mariage T&S 31/10</strong>
                 </p>
             </div>
             
@@ -425,12 +678,121 @@
         </div>
     </div>
 
+    <!-- Popup personnalisée -->
+    <div class="custom-popup" id="tripPopup">
+        <div class="popup-content">
+            <div class="popup-icon">🎉</div>
+            <div class="popup-title">Bientôt disponible</div>
+            <div class="popup-message">
+                Le suivi du trajet en temps réel sera disponible uniquement le jour de la cérémonie.<br><br>
+                <strong>31 octobre 2025</strong><br><br>
+                À très bientôt !
+            </div>
+            <button class="popup-close-btn" onclick="closePopup()">Compris</button>
+        </div>
+    </div>
+
     <script>
+        // ========================================
+        // CONFIGURATION DU LIEN DE SUIVI DE TRAJET
+        // ========================================
+        // Modifiez cette variable le jour J avec le lien de suivi en temps réel
+        const TRIP_TRACKING_URL = "https://maps.app.goo.gl/fgyVuHcp7871cgC37";
+        
+        // Date de la cérémonie (31 octobre 2025)
+        const WEDDING_DATE = new Date(2025, 9, 31); // Mois 9 = Octobre (0-indexé)
+        // ========================================
+
         function openGoogleMaps() {
-            const address = "Mairie de Bois-Colombes, Place de la République, 92270 Bois-Colombes, France";
-            const encodedAddress = encodeURIComponent(address);
-            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+            const googleMapsUrl = "https://maps.app.goo.gl/REPbKX4dJ4EaAt6q9";
             window.open(googleMapsUrl, '_blank');
+        }
+
+        function openCortegeLocation() {
+            const cortegeUrl = "https://maps.app.goo.gl/1MrACE5vEav9fSkx9";
+            window.open(cortegeUrl, '_blank');
+        }
+
+        function openTripTracking() {
+            const today = new Date();
+            const weddingDay = new Date(2025, 9, 31); // 31 octobre 2025
+            
+            // Normaliser les dates pour comparer uniquement jour/mois/année
+            const todayNormalized = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+            const weddingDayNormalized = new Date(weddingDay.getFullYear(), weddingDay.getMonth(), weddingDay.getDate());
+            
+            // Vérifier si c'est le jour de la cérémonie
+            if (todayNormalized.getTime() === weddingDayNormalized.getTime()) {
+                // C'est le jour J, ouvrir le lien de suivi
+                window.open(TRIP_TRACKING_URL, '_blank');
+            } else {
+                // Ce n'est pas encore le jour J - afficher la popup
+                showPopup();
+            }
+        }
+
+        function showPopup() {
+            const popup = document.getElementById('tripPopup');
+            popup.classList.add('show');
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('tripPopup');
+            popup.classList.remove('show');
+        }
+
+        // Fermer la popup en cliquant en dehors
+        document.addEventListener('click', function(e) {
+            const popup = document.getElementById('tripPopup');
+            if (e.target === popup) {
+                closePopup();
+            }
+        });
+
+        function updateTimelineProgress() {
+            const now = new Date();
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
+            const currentTime = currentHour + currentMinute / 60;
+
+            const timeline = document.getElementById('timeline');
+            const items = document.querySelectorAll('.timeline-item');
+            
+            // Définir les heures des événements (en format décimal)
+            // 00:00 = lendemain = 24 heures
+            const events = [
+                { time: 11.0, element: items[0] },  // 11:00 - Point de rendez-vous
+                { time: 12.0, element: items[1] },  // 12:00 - Démarrage du cortège
+                { time: 15.0, element: items[2] },  // 15:00 - Arrivée à la salle
+                { time: 19.0, element: items[3] },  // 19:00 - Dîner
+                { time: 24.0, element: items[4] }   // 00:00 du lendemain (minuit)
+            ];
+
+            let progress = 0;
+            let activeIndex = -1;
+
+            // Déterminer la progression
+            events.forEach((event, index) => {
+                if (currentTime >= event.time) {
+                    progress = index + 1;
+                    event.element.classList.add('completed');
+                    event.element.classList.remove('active');
+                } else if (activeIndex === -1 && currentTime < event.time) {
+                    activeIndex = index;
+                    event.element.classList.add('active');
+                    event.element.classList.remove('completed');
+                } else {
+                    event.element.classList.remove('completed', 'active');
+                }
+            });
+
+            // Avant 11h : rien n'a commencé, première étape est active
+            if (currentTime < 11.0) {
+                items[0].classList.add('active');
+                items[0].classList.remove('completed');
+            }
+
+            timeline.setAttribute('data-progress', progress);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -441,6 +803,12 @@
                     card.style.transform = 'scale(1)';
                 }, 300);
             }, 600);
+
+            // Mettre à jour la progression immédiatement
+            updateTimelineProgress();
+            
+            // Mettre à jour toutes les minutes
+            setInterval(updateTimelineProgress, 60000);
         });
     </script>
 </body>
